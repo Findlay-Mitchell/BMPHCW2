@@ -1,0 +1,7 @@
+index,label,data,msg,internallabel
+1,00,,This is the first point of the curve,
+2,LPC,,Limit point cycle,
+172,LPC,,Limit point cycle,
+900,BPC,,Branch Point cycle,
+901,LPC,,Limit point cycle,
+900,99,,This is the last point on the curve,
