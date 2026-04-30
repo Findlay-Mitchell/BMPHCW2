@@ -65,7 +65,7 @@ param_sets = {
     "5. tau_y = 2 (fast Lac)": tau_down,
     #"10. sigma = 4 (high OR2 binding)": sigma_up,
     #"11. sigma = 0.5 (low OR2 binding)": sigma_down,
-    "6. gamma_x = 0.100 (near boundary, outside)": gamma_y_near,
+    "6. gamma_x = 0.100 (boundary)": gamma_y_near,
 }
 
 
@@ -91,7 +91,7 @@ for label, params in param_sets.items():
 print("done")
 nrows = 2
 ncols =3
-fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(12, 5))
+fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(12, 8))
 axes = axes.flatten()
 
 for ax, (label, params) in zip(axes, param_sets.items()):
@@ -100,20 +100,20 @@ for ax, (label, params) in zip(axes, param_sets.items()):
     ax.plot(t, y, label='y (Lac)')
     ax.plot(t, x, label='x (CI)')
     
-    ax.set_title(label, fontsize=12)
+    ax.set_title(label, fontsize=16)
     ax.tick_params(labelsize=10)
 
 for ax in axes[len(param_sets):]:
     ax.set_visible(False)
 
-fig.supxlabel('Dimensionless time', fontsize=16)
-fig.supylabel('Dimensionless concentration', fontsize=16)
+fig.supxlabel('Dimensionless time', fontsize=20)
+fig.supylabel('Dimensionless concentration', fontsize=20)
 
 # shared legend
 handles, labels = axes[0].get_legend_handles_labels()
-fig.legend(handles, labels, loc='upper right', fontsize=12)
+fig.legend(handles, labels, loc='upper right', fontsize=16)
 
-plt.tight_layout(rect=[0, 0, 0.90, 1]) # leave a bit of space for the legend
+plt.tight_layout(rect=[0, 0, 1, 0.85]) # leave a bit of space for the legend
 plt.savefig("plots/grid.png")
 plt.close()
 
